@@ -7,8 +7,6 @@ import java.util.ArrayList;
  */
 
 public class Deck {
-
-
     /**
      * a deck consists of a collection of PlayingCards.
      * What type of Collection is best?
@@ -20,7 +18,6 @@ public class Deck {
     /**
      * In this case, there is a default constructor because there is a clear standard for a deck of cards.
      */
-
     public Deck() {
 
         cards = new ArrayList<PlayingCard>(); //initialise the ArrayList using its constructor.
@@ -31,7 +28,6 @@ public class Deck {
 
         We will get a sorted deck.
          */
-
         for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
                 cards.add(new PlayingCard(suit, rank));
@@ -43,7 +39,6 @@ public class Deck {
      * We need the ability to shuffle the deck.
      * Algorithm is to pick two random cards and swap them for the provided number of times.
      */
-
     public void shuffle(int numberOfSwaps) {
         //shuffle deck by swapping random pairs of cards n times
 

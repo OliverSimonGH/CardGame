@@ -10,15 +10,9 @@ import static org.junit.Assert.*;
  */
 public class DeckTest {
 
-    Deck newDeck;
-
-    @Before
-    public void setUp() throws Exception {
-        newDeck = new Deck();
-    }
-
     @Test
     public void shuffledIsDifferentWhileFreshDeckIsTheSame() throws Exception {
+        Deck newDeck = new Deck();
         Deck shuffledDeck = new Deck();
         Deck freshDeck = new Deck();
         shuffledDeck.shuffle(10);
@@ -28,11 +22,13 @@ public class DeckTest {
 
     @Test
     public void sizeAtStartEquals52() throws Exception {
+        Deck newDeck = new Deck();
         assertEquals(52, newDeck.size());
     }
 
     @Test
     public void dealSortedPackGetsAceOfClubsAndLeaves51Cards() throws Exception {
+        Deck newDeck = new Deck();
         Deck freshDeck = new Deck();
         PlayingCard topCard = freshDeck.deal();
         PlayingCard aceOfClubs = new PlayingCard(Suit.CLUBS, Rank.ACE);
