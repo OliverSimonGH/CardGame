@@ -10,9 +10,13 @@ public class Dealer {
     public void deal(Deck aDeck, ArrayList<Hand> someHands, int noOfCards) {
         for (int deal = 0; deal < noOfCards; deal++) {
             for (Hand aHand : someHands) {
-                aHand.addCard(aDeck.deal());
+                this.dealTopCardToHand(aDeck, aHand);
             }
         }
+    }
+
+    public void dealTopCardToHand(Deck aDeck, Hand aHand) {
+        aHand.addCard(aDeck.deal());
     }
 
 }
