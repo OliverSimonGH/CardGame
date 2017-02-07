@@ -8,8 +8,8 @@ public class PlayingCard {
     /*
     fields encapsulated from external use.
      */
-    private Rank rank;
-    private Suit suit;
+    private final Rank rank;
+    private final Suit suit;
 
     /*
     constructor for a Playing Card.
