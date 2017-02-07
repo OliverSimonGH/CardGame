@@ -46,4 +46,21 @@ public class Hand {
         return out.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Hand hand = (Hand) o;
+
+        if (maximumSize != hand.maximumSize) return false;
+        return cards != null ? cards.equals(hand.cards) : hand.cards == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cards != null ? cards.hashCode() : 0;
+        result = 31 * result + maximumSize;
+        return result;
+    }
 }
