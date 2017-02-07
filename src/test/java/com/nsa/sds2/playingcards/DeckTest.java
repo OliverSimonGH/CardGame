@@ -15,7 +15,7 @@ public class DeckTest {
         Deck newDeck = new Deck();
         Deck shuffledDeck = new Deck();
         Deck freshDeck = new Deck();
-        shuffledDeck.shuffle(10);
+        shuffledDeck.shuffle(1000);
         assertNotEquals(newDeck, shuffledDeck);
         assertEquals(newDeck, freshDeck);
     }

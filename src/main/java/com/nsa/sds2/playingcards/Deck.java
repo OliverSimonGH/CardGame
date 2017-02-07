@@ -42,8 +42,16 @@ public class Deck {
     public void shuffle(int numberOfSwaps) {
         //shuffle deck by swapping random pairs of cards n times
 
+        int here = 0;
+        int there = 0;
+
+
         for (int swap = 0; swap < numberOfSwaps; swap++) {
-            this.swap((int) Math.round(Math.random() * 51), (int) Math.round(Math.random() * 51));
+
+            here = (int) Math.round(Math.random() * (size() - 1));
+            there = (int) Math.round(Math.random() * (size() - 1));
+
+            this.swap(here, there);
         }
     }
 
