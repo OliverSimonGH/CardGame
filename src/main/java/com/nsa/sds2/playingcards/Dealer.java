@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Dealer {
 
-    public void deal(Deck aDeck, ArrayList<Hand> someHands, int noOfCards) {
+    public void deal(Deck aDeck, ArrayList<? extends Hand> someHands, int noOfCards) {
         for (int deal = 0; deal < noOfCards; deal++) {
             for (Hand aHand : someHands) {
                 this.dealTopCardToHand(aDeck, aHand);

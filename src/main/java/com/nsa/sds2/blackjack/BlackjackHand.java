@@ -9,19 +9,40 @@ import java.util.Comparator;
 /**
  * Represents a Blackjack hand
  */
-public class BlackjackHand implements Comparable<BlackjackHand> {
+public class BlackjackHand extends Hand {
 
-    private Hand hand;
+    private boolean inGame;
+    private boolean hasStuck;
 
 
-    public BlackjackHand(Hand aHand) {
-        hand = aHand;
+    public BlackjackHand() {
+        super();
+        inGame = true;
+        hasStuck = false;
 
+    }
+
+
+    public boolean isInGame() {
+        return inGame;
+    }
+
+    public void outOfGame() {
+        this.inGame = false;
+    }
+
+
+    public boolean hasStuck() {
+        return hasStuck;
+    }
+
+    public void stick() {
+        this.hasStuck = true;
     }
 
     private int getTotal() {
         int total = 0;
-        for (PlayingCard card : hand.getCards()) {
+        for (PlayingCard card : this.getCards()) {
             total += this.getBlackjackCardValue(card.getRank());
         }
         return total;
@@ -29,7 +50,7 @@ public class BlackjackHand implements Comparable<BlackjackHand> {
 
     private int getAceCount() {
         int count = 0;
-        for (PlayingCard card : hand.getCards()) {
+        for (PlayingCard card : this.getCards()) {
             if (card.getRank().equals(Rank.ACE)) {
                 count++;
             }
@@ -51,7 +72,7 @@ public class BlackjackHand implements Comparable<BlackjackHand> {
             } else total = total - (numberOfAcesToSave * 10);
         }
 
-        if (total == 21 && hand.getSize() == 2) {
+        if (total == 21 && this.getSize() == 2) {
             return BlackjackValue.BLACKJACK;
         }
 
@@ -60,10 +81,7 @@ public class BlackjackHand implements Comparable<BlackjackHand> {
 
     }
 
-    public int compareTo(BlackjackHand otherHand) {
-        return this.getBestHandValue().compareTo(otherHand.getBestHandValue());
 
-    }
 
 
     private int getBlackjackCardValue(Rank aRank) {
@@ -78,6 +96,10 @@ public class BlackjackHand implements Comparable<BlackjackHand> {
             default:
                 return aRank.ordinal() + 1;
         }
+    }
+
+    public String toString() {
+        return getBestHandValue().toString();
     }
 
 }

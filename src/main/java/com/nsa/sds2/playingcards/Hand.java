@@ -9,6 +9,7 @@ public class Hand {
 
     private ArrayList<PlayingCard> cards;
     private int maximumSize;
+    private String player;
 
     public Hand() {
         this(53);
@@ -23,6 +24,14 @@ public class Hand {
         if (getSize() < maximumSize) {
             cards.add(aCard);
         }
+    }
+
+    public String getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(String player) {
+        this.player = player;
     }
 
     public int getSize() {
