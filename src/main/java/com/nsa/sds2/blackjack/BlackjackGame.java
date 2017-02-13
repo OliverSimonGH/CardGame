@@ -87,11 +87,14 @@ public class BlackjackGame {
     }
 
     public static void main(String... args) {
+        long start = System.currentTimeMillis();
         String[] players = {"Carl", "Ian", "Chris"};
         BlackjackGame game = new BlackjackGame(players);
         game.initialDeal();
         game.gameLoop();
         System.out.println("Winner is " + game.getWinner().getPlayer());
+        System.out.println("Run time " + (System.currentTimeMillis() - start));
+
     }
 
 

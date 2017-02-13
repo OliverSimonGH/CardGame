@@ -98,8 +98,5 @@ public class BlackjackHand extends Hand {
         }
     }
 
-    public String toString() {
-        return getBestHandValue().toString();
-    }
 
 }
